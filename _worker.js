@@ -11,7 +11,7 @@ let egi = true;  // 启用GitHub优选
 let ev = true;   // 启用VLESS协议
 let et = false;  // 启用Trojan协议
 let vm = false;  // 启用VMess协议
-let scu = 'https://url.v1.mk/sub';  // 订阅转换地址
+let scu = 'https://subapi.20082020.xyz/sub';  // 订阅转换地址
 // ECH (Encrypted Client Hello)
 let enableECH = false;
 let customDNS = 'https://dns.joeyblog.eu.org/joeyblog';
