@@ -11,7 +11,7 @@ let egi = true;  // 启用GitHub优选
 let ev = true;   // 启用VLESS协议
 let et = false;  // 启用Trojan协议
 let vm = false;  // 启用VMess协议
-let scu = 'https://url.v1.mk/sub';  // 订阅转换地址
+let scu = 'https://subapi.20082020.xyz/sub';  // 订阅转换地址
 // ECH (Encrypted Client Hello)
 let enableECH = false;
 let customDNS = 'https://dns.joeyblog.eu.org/joeyblog';
@@ -757,7 +757,7 @@ function generateQuantumultConfig(links) {
 
 // 生成iOS 26风格的主页
 function generateHomePage(scuValue) {
-    const scu = scuValue || 'https://url.v1.mk/sub';
+    const scu = scuValue || 'https://subapi.20082020.xyz/sub';
     return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -1533,7 +1533,9 @@ function generateHomePage(scuValue) {
                 }
             } else {
                 const encodedUrl = encodeURIComponent(subscriptionUrl);
-                finalUrl = SUB_CONVERTER_URL + '?target=' + clientType + '&url=' + encodedUrl + '&insert=false&emoji=true&list=false&xudp=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&new_name=true';
+                // 添加不良林防DNS泄露规则
+                const ruleUrl = encodeURIComponent("https://raw.githubusercontent.com/bulianglin/demo/main/nodnsleak.ini");
+                finalUrl = SUB_CONVERTER_URL + '?target=' + clientType + '&url=' + encodedUrl + '&config=' + ruleUrl + '&insert=false&emoji=true&list=false&xudp=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&new_name=true';
                 
                 const urlElement = document.getElementById('clientSubscriptionUrl');
                 urlElement.textContent = finalUrl;
